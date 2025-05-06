@@ -1,0 +1,34 @@
+<div class="container">
+    <h2>Weather Or Not</h2>
+    <select [(ngModel)]="city" (change)="getWeather()">
+        <option *ngFor="let cityName of availableCities" [value]="cityName">
+          {{ cityName }}
+        </option>
+      </select>
+      
+      
+    <button (click)="getWeather()">Get Weather</button>
+  
+    <div *ngIf="weatherData">
+      <h3>{{ weatherData.city }}</h3>
+      <p style="font-size: 24px; font-weight: bold;"> {{ weatherData.temperature }} °C</p>
+      <p>Condition: {{ weatherData.condition }}</p>
+      <p>Humidity: {{ weatherData.humidity }}%</p>
+      <p>Wind Speed: {{ weatherData.windSpeed }} km/h</p>
+    </div>
+    <div *ngIf="forecastData.length > 0">
+        <h3 style="text-decoration: underline;">5-Day Forecast</h3>
+        <div class="forecast-cards">
+          <div class="card" *ngFor="let day of forecastData">
+            <h4>{{ day.day }}</h4>
+            <p>{{ day.temperature }}°C</p>
+            <p>{{ day.condition }}</p>
+          </div>
+        </div>
+      </div>
+      
+      
+  
+    <p *ngIf="error" style="color: red">{{ error }}</p>
+  </div>
+  
