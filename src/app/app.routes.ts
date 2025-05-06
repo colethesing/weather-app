@@ -4,12 +4,14 @@ import { ContactComponent } from './contact/contact.component';
 import { NgModule } from '@angular/core';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
+import { ForecastComponent } from './forecast/forecast.component';
 
 export const routes: Routes = [
     {path: '', component: WeatherComponent},
     {path: 'contact', component: ContactComponent},
     {path: 'login', component: LoginComponent},
-    {path: 'signup', component: SignupComponent}
+    {path: 'signup', component: SignupComponent},
+    {path: 'forecast', component: ForecastComponent},
 ];
 
 @NgModule({
